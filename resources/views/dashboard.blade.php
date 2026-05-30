@@ -5,7 +5,7 @@
 @section('content')
 <div class="row mb-4">
     <div class="col-12">
-        <h2 class="fw-bold mb-1">Dashboard Admin</h2>
+        <h2 class="fw-bold mb-1">Dashboard Guru</h2>
         <p class="text-muted">Selamat datang di sistem manajemen kesiswaan & absensi sekolah.</p>
     </div>
 </div>

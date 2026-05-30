@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/siswa/absen', [SiswaDashboardController::class, 'absen'])->name('siswa.absen.proses');
     });
 
-    // Admin-Only Routes
-    Route::middleware('role:admin')->group(function () {
+    // Guru-Only Routes
+    Route::middleware('role:guru')->group(function () {
         // Dashboard Admin
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

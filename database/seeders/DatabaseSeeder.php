@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Seed Default Admin
+        // 1. Seed Default Guru
         User::create([
-            'username' => 'admin',
-            'password' => Hash::make('admin123'),
-            'role' => 'admin',
+            'username' => 'guru',
+            'password' => Hash::make('guru123'),
+            'role' => 'guru',
         ]);
 
         // 2. Seed Jurusan (Hanya yang diperlukan untuk data siswa)

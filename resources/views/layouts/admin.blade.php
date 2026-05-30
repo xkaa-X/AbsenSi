@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - EduAbsen Admin</title>
+    <title>@yield('title') - EduAbsen Guru</title>
     
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -262,14 +262,14 @@
 </head>
 <body>
 
-    <!-- Sidebar Admin -->
+    <!-- Sidebar Guru -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-brand">
             <i class="bi bi-calendar2-check-fill fs-3"></i>
             <span>EduAbsen</span>
         </div>
         <ul class="sidebar-menu">
-            @if(Auth::user()->role === 'admin')
+            @if(Auth::user()->role === 'guru')
                 <li class="sidebar-item">
                     <a href="{{ route('dashboard') }}" class="sidebar-link {{ Route::is('dashboard') ? 'active' : '' }}">
                         <i class="bi bi-grid-1x2-fill"></i>

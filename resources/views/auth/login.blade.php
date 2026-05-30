@@ -65,11 +65,11 @@
             background-color: var(--glass-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
             z-index: 10;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             overflow: hidden;
             animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -80,26 +80,26 @@
         }
 
         .login-header {
-            padding: 40px 40px 20px 40px;
+            padding: 30px 30px 15px 30px;
             text-align: center;
         }
 
         .login-logo {
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             background: var(--primary-gradient);
-            border-radius: 18px;
+            border-radius: 16px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 15px;
             box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
         }
 
         .login-body {
-            padding: 0 40px 40px 40px;
+            padding: 0 30px 30px 30px;
         }
 
         .form-control-premium {
@@ -235,14 +235,14 @@
                     <span class="fw-bold text-primary">Akun Seeder Default:</span>
                 </div>
                 <div class="mb-2 pb-2 border-bottom">
-                    <small class="d-block text-muted fw-bold">ADMIN:</small>
+                    <small class="d-block text-muted fw-bold">GURU (TEACHER):</small>
                     <div class="d-flex justify-content-between mb-1">
                         <span class="text-muted">Username:</span>
-                        <strong class="text-dark">admin</strong>
+                        <strong class="text-dark">guru</strong>
                     </div>
                     <div class="d-flex justify-content-between">
                         <span class="text-muted">Password:</span>
-                        <strong class="text-dark">admin123</strong>
+                        <strong class="text-dark">guru123</strong>
                     </div>
                 </div>
                 <div>

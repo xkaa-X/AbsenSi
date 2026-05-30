@@ -20,13 +20,13 @@ class RoleMiddleware
         }
 
         if (auth()->user()->role !== $role) {
-            // Jika siswa mencoba masuk ke admin area, alihkan ke siswa dashboard
+            // Jika siswa mencoba masuk ke guru area, alihkan ke siswa dashboard
             if (auth()->user()->role === 'siswa') {
-                return redirect()->route('siswa.dashboard')->with('error', 'Aksi ini hanya diizinkan untuk Admin!');
+                return redirect()->route('siswa.dashboard')->with('error', 'Aksi ini hanya diizinkan untuk Guru!');
             }
             
-            // Jika admin mencoba masuk ke siswa area, alihkan ke admin dashboard
-            if (auth()->user()->role === 'admin') {
+            // Jika guru mencoba masuk ke siswa area, alihkan ke guru dashboard
+            if (auth()->user()->role === 'guru') {
                 return redirect()->route('dashboard');
             }
 

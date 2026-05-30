@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class AbsensiController extends Controller
 {
     /**
-     * Tampilkan data absensi hari ini untuk Admin.
+     * Tampilkan data absensi hari ini untuk Guru.
      */
     public function index(Request $request)
     {
@@ -67,28 +67,28 @@ class AbsensiController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * Dinonaktifkan: Admin hanya bisa melihat.
+     * Dinonaktifkan: Guru hanya bisa melihat.
      */
     public function edit(Absensi $absensi)
     {
-        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat diubah oleh Admin.');
+        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat diubah oleh Guru.');
     }
 
     /**
      * Update the specified resource in storage.
-     * Dinonaktifkan: Admin hanya bisa melihat.
+     * Dinonaktifkan: Guru hanya bisa melihat.
      */
     public function update(Request $request, Absensi $absensi)
     {
-        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat diubah oleh Admin.');
+        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat diubah oleh Guru.');
     }
 
     /**
      * Remove the specified resource from storage.
-     * Dinonaktifkan: Admin hanya bisa melihat.
+     * Dinonaktifkan: Guru hanya bisa melihat.
      */
     public function destroy(Absensi $absensi)
     {
-        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat dihapus oleh Admin.');
+        abort(403, 'Aksi ini tidak diizinkan. Catatan absensi tidak dapat dihapus oleh Guru.');
     }
 }

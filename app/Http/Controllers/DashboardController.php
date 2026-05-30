@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
     /**
-     * Tampilkan halaman dashboard admin beserta statistik.
+     * Tampilkan halaman dashboard guru beserta statistik.
      */
     public function index()
     {

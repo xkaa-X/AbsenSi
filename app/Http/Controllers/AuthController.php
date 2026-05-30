@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check()) {
-            if (Auth::user()->role === 'admin') {
+            if (Auth::user()->role === 'guru') {
                 return redirect()->route('dashboard');
             } else {
                 return redirect()->route('siswa.dashboard');
@@ -40,7 +40,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            if (Auth::user()->role === 'admin') {
+            if (Auth::user()->role === 'guru') {
                 return redirect()->route('dashboard')
                     ->with('success', 'Selamat datang kembali, ' . Auth::user()->username . '!');
             } else {

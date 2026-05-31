@@ -3,10 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\SiswaDashboardController;
 
 /*
@@ -36,11 +33,8 @@ Route::middleware('auth')->group(function () {
         // Dashboard Admin
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        // CRUD Resource Routes
-        Route::resource('jurusan', JurusanController::class);
-        Route::resource('kelas', KelasController::class)->parameters(['kelas' => 'kelas']);
-        Route::resource('siswa', SiswaController::class);
-        Route::resource('absensi', AbsensiController::class);
+        // CRUD Resource Routes (Siswa Profile details and edit only)
+        Route::resource('siswa', SiswaController::class)->except(['index']);
     });
 
     // Logout

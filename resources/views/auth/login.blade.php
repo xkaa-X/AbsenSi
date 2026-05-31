@@ -30,9 +30,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             position: relative;
-            overflow: hidden;
+            overflow-y: auto;
         }
 
         /* Decorative Background Elements */
@@ -69,7 +69,7 @@
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
             z-index: 10;
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             overflow: hidden;
             animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -80,33 +80,33 @@
         }
 
         .login-header {
-            padding: 30px 30px 15px 30px;
+            padding: 20px 20px 10px 20px;
             text-align: center;
         }
 
         .login-logo {
-            width: 52px;
-            height: 52px;
+            width: 44px;
+            height: 44px;
             background: var(--primary-gradient);
-            border-radius: 16px;
+            border-radius: 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 8px;
             box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
         }
 
         .login-body {
-            padding: 0 30px 30px 30px;
+            padding: 0 20px 20px 20px;
         }
 
         .form-control-premium {
             border: 1.5px solid #e2e8f0;
             border-radius: 12px;
-            padding: 12px 16px;
-            font-size: 15px;
+            padding: 10px 14px;
+            font-size: 14px;
             background-color: rgba(255, 255, 255, 0.6);
             transition: all 0.2s ease;
         }
@@ -123,7 +123,7 @@
             border-right: none;
             border-radius: 12px 0 0 12px;
             color: #94a3b8;
-            padding-left: 16px;
+            padding-left: 14px;
         }
 
         .input-premium-right {
@@ -135,10 +135,10 @@
             background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 12px;
+            padding: 10px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.25s ease;
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
         }
@@ -153,9 +153,9 @@
         .demo-credentials-card {
             background-color: rgba(79, 70, 229, 0.05);
             border: 1px dashed rgba(79, 70, 229, 0.25);
-            border-radius: 16px;
-            padding: 16px;
-            font-size: 13.5px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 11.5px;
         }
     </style>
 </head>
@@ -171,25 +171,25 @@
             <div class="login-logo">
                 <i class="bi bi-calendar2-check-fill"></i>
             </div>
-            <h3 class="fw-extrabold text-dark mb-1">Selamat Datang</h3>
-            <p class="text-muted mb-0">Website Pendataan & Absensi Siswa</p>
+            <h4 class="fw-extrabold text-dark mb-0.5" style="font-size: 1.25rem;">Selamat Datang</h4>
+            <p class="text-muted mb-0" style="font-size: 12.5px;">Website Pendataan & Absensi Siswa</p>
         </div>
 
         <div class="login-body">
             
             <!-- Alert Session Flash -->
             @if(session('success'))
-                <div class="alert alert-success border-0 rounded-4 shadow-sm p-3 mb-4 d-flex align-items-center" role="alert">
-                    <i class="bi bi-check-circle-fill me-2 fs-5 text-success"></i>
-                    <div style="font-size: 14px;">{{ session('success') }}</div>
+                <div class="alert alert-success border-0 rounded-4 shadow-sm p-2 mb-3 d-flex align-items-center" role="alert">
+                    <i class="bi bi-check-circle-fill me-2 fs-6 text-success"></i>
+                    <div style="font-size: 13px;">{{ session('success') }}</div>
                 </div>
             @endif
 
             <!-- Alert Validation Errors -->
             @if($errors->has('loginError'))
-                <div class="alert alert-danger border-0 rounded-4 shadow-sm p-3 mb-4 d-flex align-items-center" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill me-2 fs-5 text-danger"></i>
-                    <div style="font-size: 14px;">{{ $errors->first('loginError') }}</div>
+                <div class="alert alert-danger border-0 rounded-4 shadow-sm p-2 mb-3 d-flex align-items-center" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2 fs-6 text-danger"></i>
+                    <div style="font-size: 13px;">{{ $errors->first('loginError') }}</div>
                 </div>
             @endif
 
@@ -197,8 +197,8 @@
                 @csrf
                 
                 <!-- Username Input -->
-                <div class="mb-3">
-                    <label for="username" class="form-label fw-semibold" style="font-size: 14px;">Username</label>
+                <div class="mb-2">
+                    <label for="username" class="form-label fw-semibold mb-1" style="font-size: 13px;">Username</label>
                     <div class="input-group">
                         <span class="input-group-text input-group-text-premium"><i class="bi bi-person-fill"></i></span>
                         <input type="text" class="form-control form-control-premium input-premium-right @error('username') is-invalid @enderror" 
@@ -210,8 +210,8 @@
                 </div>
 
                 <!-- Password Input -->
-                <div class="mb-4">
-                    <label for="password" class="form-label fw-semibold" style="font-size: 14px;">Password</label>
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-semibold mb-1" style="font-size: 13px;">Password</label>
                     <div class="input-group">
                         <span class="input-group-text input-group-text-premium"><i class="bi bi-shield-lock-fill"></i></span>
                         <input type="password" class="form-control form-control-premium input-premium-right @error('password') is-invalid @enderror" 
@@ -223,7 +223,7 @@
                 </div>
 
                 <!-- Action Button -->
-                <button type="submit" class="btn btn-premium-primary w-100 mb-4">
+                <button type="submit" class="btn btn-premium-primary w-100 mb-3">
                     Login Ke Sistem <i class="bi bi-arrow-right-short fs-5 ms-1"></i>
                 </button>
             </form>
@@ -231,29 +231,31 @@
             <!-- Test Credentials Card -->
             <div class="demo-credentials-card">
                 <div class="d-flex align-items-center mb-2 text-indigo-800">
-                    <i class="bi bi-info-circle-fill me-2 text-primary fs-5"></i>
-                    <span class="fw-bold text-primary">Akun Seeder Default:</span>
+                    <i class="bi bi-info-circle-fill me-1.5 text-primary fs-6"></i>
+                    <span class="fw-bold text-primary" style="font-size: 12px;">Akun Seeder Default:</span>
                 </div>
-                <div class="mb-2 pb-2 border-bottom">
-                    <small class="d-block text-muted fw-bold">GURU (TEACHER):</small>
-                    <div class="d-flex justify-content-between mb-1">
-                        <span class="text-muted">Username:</span>
-                        <strong class="text-dark">guru</strong>
+                <div class="row g-2">
+                    <div class="col-6 border-end pe-2">
+                        <small class="d-block text-muted fw-bold mb-1" style="font-size: 9.5px; letter-spacing: 0.3px;">GURU (TEACHER):</small>
+                        <div class="d-flex justify-content-between mb-0.5" style="font-size: 11px;">
+                            <span class="text-muted">User:</span>
+                            <strong class="text-dark">guru</strong>
+                        </div>
+                        <div class="d-flex justify-content-between" style="font-size: 11px;">
+                            <span class="text-muted">Pass:</span>
+                            <strong class="text-dark">guru123</strong>
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <span class="text-muted">Password:</span>
-                        <strong class="text-dark">guru123</strong>
-                    </div>
-                </div>
-                <div>
-                    <small class="d-block text-muted fw-bold">SISWA:</small>
-                    <div class="d-flex justify-content-between mb-1">
-                        <span class="text-muted">Username (NIS):</span>
-                        <strong class="text-dark">1 s/d 40</strong>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span class="text-muted">Password:</span>
-                        <strong class="text-dark">siswa123</strong>
+                    <div class="col-6 ps-2">
+                        <small class="d-block text-muted fw-bold mb-1" style="font-size: 9.5px; letter-spacing: 0.3px;">SISWA (STUDENT):</small>
+                        <div class="d-flex justify-content-between mb-0.5" style="font-size: 11px;">
+                            <span class="text-muted">NIS:</span>
+                            <strong class="text-dark">1 - 40</strong>
+                        </div>
+                        <div class="d-flex justify-content-between" style="font-size: 11px;">
+                            <span class="text-muted">Pass:</span>
+                            <strong class="text-dark">siswa123</strong>
+                        </div>
                     </div>
                 </div>
             </div>

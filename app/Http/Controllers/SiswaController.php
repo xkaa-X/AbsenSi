@@ -82,7 +82,7 @@ class SiswaController extends Controller
             'role' => 'siswa',
         ]);
 
-        return redirect()->route('siswa.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Data siswa dan akun login berhasil ditambahkan!');
     }
 
@@ -156,7 +156,7 @@ class SiswaController extends Controller
             ]);
         }
 
-        return redirect()->route('siswa.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Data siswa dan akun login berhasil diperbarui!');
     }
 
@@ -192,7 +192,7 @@ class SiswaController extends Controller
             $newNis++;
         }
 
-        return redirect()->route('siswa.index')
+        return redirect()->route('dashboard')
             ->with('success', 'Data siswa berhasil dihapus dan NIS seluruh siswa telah disesuaikan kembali secara berurutan!');
     }
 }

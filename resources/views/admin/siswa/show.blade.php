@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="mb-4">
-    <a href="{{ route('siswa.index') }}" class="btn btn-sm btn-outline-secondary rounded-3 px-3">
+    <a href="{{ route('dashboard') }}" class="btn btn-sm btn-outline-secondary rounded-3 px-3">
         <i class="bi bi-arrow-left-short fs-5 align-middle"></i> Kembali
     </a>
 </div>

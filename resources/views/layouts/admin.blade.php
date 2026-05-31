@@ -273,35 +273,7 @@
                 <li class="sidebar-item">
                     <a href="{{ route('dashboard') }}" class="sidebar-link {{ Route::is('dashboard') ? 'active' : '' }}">
                         <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                
-                <li class="sidebar-item">
-                    <a href="{{ route('jurusan.index') }}" class="sidebar-link {{ Route::is('jurusan.*') ? 'active' : '' }}">
-                        <i class="bi bi-journal-bookmark-fill"></i>
-                        <span>Data Jurusan</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="{{ route('kelas.index') }}" class="sidebar-link {{ Route::is('kelas.*') ? 'active' : '' }}">
-                        <i class="bi bi-building-fill"></i>
-                        <span>Data Kelas</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="{{ route('siswa.index') }}" class="sidebar-link {{ Route::is('siswa.*') ? 'active' : '' }}">
-                        <i class="bi bi-people-fill"></i>
-                        <span>Data Siswa</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="{{ route('absensi.index') }}" class="sidebar-link {{ Route::is('absensi.*') ? 'active' : '' }}">
-                        <i class="bi bi-calendar-check-fill"></i>
-                        <span>Absensi Siswa</span>
+                        <span>Dashboard Kelas</span>
                     </a>
                 </li>
             @else
@@ -316,7 +288,7 @@
         
         <div class="position-absolute bottom-0 start-0 end-0 p-3">
             <div class="p-3 bg-light bg-opacity-10 rounded-4 text-center">
-                <p class="text-xs mb-1 text-muted">Masuk Sebagai:</p>
+                <p class="text-xs mb-1 ">Masuk Sebagai:</p>
                 <h6 class="text-white mb-0 text-truncate">{{ Auth::user()->role === 'siswa' && Auth::user()->siswa ? Auth::user()->siswa->nama : Auth::user()->username }}</h6>
                 <small class="text-white-50 d-block mb-3">({{ ucfirst(Auth::user()->role) }})</small>
                 <form action="{{ route('logout') }}" method="POST">

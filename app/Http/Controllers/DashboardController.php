@@ -19,36 +19,40 @@ class DashboardController extends Controller
             return redirect()->route('siswa.dashboard');
         }
 
-        $totalSiswa = Siswa::count();
-        $totalKelas = Kelas::count();
-        $totalJurusan = Jurusan::count();
+        // Ambil kelas pertama (XI RPL 1)
+        $kelas = Kelas::with('jurusan')->first();
+        
+        if ($kelas) {
+            $siswas = Siswa::where('kelas_id', $kelas->id)->orderBy('nama', 'asc')->get();
+            $totalSiswa = $siswas->count();
+        } else {
+            $siswas = collect();
+            $totalSiswa = 0;
+        }
 
         // Hari ini
         $hariIni = Carbon::today()->format('Y-m-d');
         
+        // Ambil absensi hari ini dan keyBy siswa_id
+        $absensiHariIni = Absensi::where('tanggal_absen', $hariIni)
+            ->get()
+            ->keyBy('siswa_id');
+
         // Statistik Absensi Hari Ini
-        $hadirHariIni = Absensi::where('tanggal_absen', $hariIni)->where('status', 'Hadir')->count();
-        $sakitHariIni = Absensi::where('tanggal_absen', $hariIni)->where('status', 'Sakit')->count();
-        $izinHariIni = Absensi::where('tanggal_absen', $hariIni)->where('status', 'Izin')->count();
-        $alpaHariIni = Absensi::where('tanggal_absen', $hariIni)->where('status', 'Alpa')->count();
-        
-        $totalAbsenHariIni = Absensi::where('tanggal_absen', $hariIni)->count();
-        $belumAbsenHariIni = max(0, $totalSiswa - $totalAbsenHariIni);
+        $hadirHariIni = $absensiHariIni->where('status', 'Hadir')->count();
+        $sakitHariIni = $absensiHariIni->where('status', 'Sakit')->count();
+        $izinHariIni = $absensiHariIni->where('status', 'Izin')->count();
+        $alpaHariIni = $absensiHariIni->where('status', 'Alpa')->count();
+        $belumAbsenHariIni = max(0, $totalSiswa - $absensiHariIni->count());
 
         // Statistik Gender Siswa
-        $siswaLaki = Siswa::where('jenis_kelamin', 'Laki-laki')->count();
-        $siswaPerempuan = Siswa::where('jenis_kelamin', 'Perempuan')->count();
-
-        // 5 Absensi Terbaru
-        $absensiTerbaru = Absensi::with('siswa.kelas')
-            ->orderBy('id', 'desc')
-            ->limit(5)
-            ->get();
+        $siswaLaki = $siswas->where('jenis_kelamin', 'Laki-laki')->count();
+        $siswaPerempuan = $siswas->where('jenis_kelamin', 'Perempuan')->count();
 
         return view('dashboard', compact(
+            'kelas',
+            'siswas',
             'totalSiswa',
-            'totalKelas',
-            'totalJurusan',
             'hadirHariIni',
             'sakitHariIni',
             'izinHariIni',
@@ -56,7 +60,8 @@ class DashboardController extends Controller
             'belumAbsenHariIni',
             'siswaLaki',
             'siswaPerempuan',
-            'absensiTerbaru'
+            'absensiHariIni',
+            'hariIni'
         ));
     }
 }
